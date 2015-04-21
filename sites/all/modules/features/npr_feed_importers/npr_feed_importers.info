@@ -6,6 +6,7 @@ project = npr_feed_importers
 dependencies[] = ctools
 dependencies[] = features
 dependencies[] = feeds
+dependencies[] = feeds_xpathparser
 dependencies[] = npr_articles_shows
 dependencies[] = strongarm
 dependencies[] = text
