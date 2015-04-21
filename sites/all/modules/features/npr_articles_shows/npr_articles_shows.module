@@ -1,0 +1,7 @@
+<?php
+/**
+ * @file
+ * Code for the NPR Articles Shows feature.
+ */
+
+include_once 'npr_articles_shows.features.inc';

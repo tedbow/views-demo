@@ -1,0 +1,7 @@
+<?php
+/**
+ * @file
+ * Code for the NPR Views feature.
+ */
+
+include_once 'npr_views.features.inc';

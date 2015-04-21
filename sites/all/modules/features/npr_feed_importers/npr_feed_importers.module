@@ -1,0 +1,7 @@
+<?php
+/**
+ * @file
+ * Code for the NPR Feed Importers feature.
+ */
+
+include_once 'npr_feed_importers.features.inc';
