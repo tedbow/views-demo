@@ -33,7 +33,7 @@ function npr_feed_importers_feeds_importer_default() {
           'xpathparser:0' => '@id',
           'xpathparser:1' => 'title',
           'xpathparser:3' => 'text/descendant::*/text()',
-          'xpathparser:4' => 'image/crop[@type=\'standard\']/@src',
+          'xpathparser:4' => 'string(image/crop[1]/@src)',
           'xpathparser:5' => 'image/title',
           'xpathparser:6' => 'image/caption',
           'xpathparser:7' => 'parent[@type=\'primaryTopic\']/title',
@@ -65,11 +65,11 @@ function npr_feed_importers_feeds_importer_default() {
         'exp' => array(
           'errors' => 0,
           'debug' => array(
+            'xpathparser:4' => 'xpathparser:4',
             'context' => 0,
             'xpathparser:0' => 0,
             'xpathparser:1' => 0,
             'xpathparser:3' => 0,
-            'xpathparser:4' => 0,
             'xpathparser:5' => 0,
             'xpathparser:6' => 0,
             'xpathparser:7' => 0,
@@ -282,7 +282,7 @@ function npr_feed_importers_feeds_importer_default() {
       'config' => array(
         'sources' => array(
           'xpathparser:0' => 'byline/name[1]',
-          'xpathparser:1' => 'concat(fn:repace(\'$name\',\' \',\'-\'),\'@example.com\')',
+          'xpathparser:1' => '"ted@example.com"',
           'xpathparser:2' => 'byline/name[1]',
         ),
         'rawXML' => array(

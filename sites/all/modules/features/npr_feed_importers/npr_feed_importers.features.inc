@@ -46,5 +46,6 @@ function npr_feed_importers_node_info() {
       'help' => '',
     ),
   );
+  drupal_alter('node_info', $items);
   return $items;
 }
