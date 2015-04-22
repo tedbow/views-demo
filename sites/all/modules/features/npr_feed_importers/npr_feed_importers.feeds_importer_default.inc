@@ -33,9 +33,6 @@ function npr_feed_importers_feeds_importer_default() {
           'xpathparser:0' => '@id',
           'xpathparser:1' => 'title',
           'xpathparser:3' => 'text/descendant::*/text()',
-          'xpathparser:4' => 'string(image/crop[1]/@src)',
-          'xpathparser:5' => 'image/title',
-          'xpathparser:6' => 'image/caption',
           'xpathparser:7' => 'parent[@type=\'primaryTopic\']/title',
           'xpathparser:8' => 'byline/name',
           'xpathparser:9' => 'parent[@type=\'topic\']/title',
@@ -44,14 +41,13 @@ function npr_feed_importers_feeds_importer_default() {
           'xpathparser:12' => 'show/program',
           'xpathparser:13' => 'link[@type=\'html\']',
           'xpathparser:14' => 'show/program',
+          'xpathparser:15' => 'string(image/crop[1]/@src)',
         ),
         'rawXML' => array(
+          'xpathparser:15' => 'xpathparser:15',
           'xpathparser:0' => 0,
           'xpathparser:1' => 0,
           'xpathparser:3' => 0,
-          'xpathparser:4' => 0,
-          'xpathparser:5' => 0,
-          'xpathparser:6' => 0,
           'xpathparser:7' => 0,
           'xpathparser:8' => 0,
           'xpathparser:9' => 0,
@@ -65,13 +61,10 @@ function npr_feed_importers_feeds_importer_default() {
         'exp' => array(
           'errors' => 0,
           'debug' => array(
-            'xpathparser:4' => 'xpathparser:4',
             'context' => 0,
             'xpathparser:0' => 0,
             'xpathparser:1' => 0,
             'xpathparser:3' => 0,
-            'xpathparser:5' => 0,
-            'xpathparser:6' => 0,
             'xpathparser:7' => 0,
             'xpathparser:8' => 0,
             'xpathparser:9' => 0,
@@ -80,6 +73,7 @@ function npr_feed_importers_feeds_importer_default() {
             'xpathparser:12' => 0,
             'xpathparser:13' => 0,
             'xpathparser:14' => 0,
+            'xpathparser:15' => 0,
           ),
         ),
         'allow_override' => 0,
@@ -108,61 +102,51 @@ function npr_feed_importers_feeds_importer_default() {
             'unique' => FALSE,
           ),
           3 => array(
-            'source' => 'xpathparser:4',
-            'target' => 'field_image:uri',
-            'unique' => FALSE,
-          ),
-          4 => array(
-            'source' => 'xpathparser:5',
-            'target' => 'field_image:title',
-            'unique' => FALSE,
-          ),
-          5 => array(
-            'source' => 'xpathparser:6',
-            'target' => 'field_image:alt',
-            'unique' => FALSE,
-          ),
-          6 => array(
             'source' => 'xpathparser:7',
             'target' => 'field_category',
             'term_search' => '0',
             'autocreate' => 1,
           ),
-          7 => array(
+          4 => array(
             'source' => 'xpathparser:8',
             'target' => 'user_name',
             'unique' => FALSE,
           ),
-          8 => array(
+          5 => array(
             'source' => 'xpathparser:9',
             'target' => 'field_tags',
             'term_search' => '0',
             'autocreate' => 1,
           ),
-          9 => array(
+          6 => array(
             'source' => 'xpathparser:10',
             'target' => 'field_tag_line',
             'unique' => FALSE,
           ),
-          10 => array(
+          7 => array(
             'source' => 'xpathparser:11',
             'target' => 'created',
             'unique' => FALSE,
           ),
-          11 => array(
+          8 => array(
             'source' => 'xpathparser:12',
             'target' => 'field_show',
             'term_search' => '0',
             'autocreate' => 1,
           ),
-          12 => array(
+          9 => array(
             'source' => 'xpathparser:13',
             'target' => 'field_original_article:url',
             'unique' => FALSE,
           ),
-          13 => array(
+          10 => array(
             'source' => 'xpathparser:14',
             'target' => 'field_show_node:label',
+            'unique' => FALSE,
+          ),
+          11 => array(
+            'source' => 'xpathparser:15',
+            'target' => 'field_image',
             'unique' => FALSE,
           ),
         ),
