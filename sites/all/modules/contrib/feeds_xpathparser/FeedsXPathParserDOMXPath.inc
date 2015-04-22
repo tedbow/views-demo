@@ -9,58 +9,23 @@
  * Wraps DOMXPath providing enhanced debugging and special namespace handling.
  */
 class FeedsXPathParserDOMXPath extends DOMXPath {
-
-  /**
-   * The DOMDocument to parse.
-   *
-   * @var DOMDocument
-   */
-  protected $doc;
-
-  /**
-   * Configuration array.
-   *
-   * @var array
-   */
   protected $config = array();
-
-  /**
-   * Modified query cache.
-   *
-   * @var arrray
-   */
   protected $modifiedQueries = array();
 
   /**
-   * The namespaces in the document.
-   *
-   * @var arrray
-   */
-  protected $namepsaces = array();
-
-  /**
-   * The most recent error from parsing.
-   *
-   * @var stdClass
-   */
-  protected $error;
-
-  /**
-   * Constructs a FeedsXPathParserDOMXPath object.
+   * Constructs a FeedsXPathParserDOMXPath.
    *
    * @param DOMDocument $doc
    *   The DOMDocument that we're operating on.
    */
   public function __construct(DOMDocument $doc) {
-
+    $this->namespaces = array();
     $simple = simplexml_import_dom($doc);
-
     // An empty DOMDocument will make $simple NULL.
     if ($simple !== NULL) {
       $this->namespaces = $simple->getNamespaces(TRUE);
     }
     $this->doc = $doc;
-
     parent::__construct($doc);
   }
 
@@ -81,12 +46,9 @@ class FeedsXPathParserDOMXPath extends DOMXPath {
    *   The result of an XPath query. Either a scalar or a DOMNodeList.
    * @param string $source
    *   The source key that produced this query.
-   *
-   * @todo Use theme_item_list().
    */
   protected function debug($data, $source) {
     $output = "$source : <ul>";
-
     if ($data instanceof DOMNodeList) {
       foreach ($data as $node) {
         $output .= '<li>' . check_plain($this->doc->saveXML($node)) . '</li>';
@@ -96,7 +58,6 @@ class FeedsXPathParserDOMXPath extends DOMXPath {
       $output .= '<li>' . check_plain($data) . '</li>';
     }
     $output .= '</ul>';
-
     drupal_set_message($output);
   }
 
@@ -115,9 +76,7 @@ class FeedsXPathParserDOMXPath extends DOMXPath {
    */
   public function namespacedQuery($query, $context, $source) {
     $this->addDefaultNamespace($query);
-
     $results = $this->executeQuery($query, $context);
-
     if (in_array($source, $this->config['debug'])) {
       $this->debug($results, $source);
     }
@@ -147,7 +106,7 @@ class FeedsXPathParserDOMXPath extends DOMXPath {
     }
 
     // DOMXPath::evaluate() and DOMXPath::query() will return FALSE on error or
-    // if the value is FALSE. We check error result and return NULL in case
+    // if the value is false. We check error result and return NULL in case
     // of error.
     if (is_object($this->error) && $this->error->level == LIBXML_ERR_ERROR) {
       return NULL;
@@ -187,19 +146,19 @@ class FeedsXPathParserDOMXPath extends DOMXPath {
   /**
    * Performs a XPath query.
    *
-   * Here we set libxml_use_internal_errors() to TRUE because depending on the
+   * Here we set libxml_use_internal_errors to TRUE because depending on the
    * libxml version, $xml->xpath() might return FALSE or an empty array() when
    * a query doesn't match.
    *
    * @param string $query
    *   The XPath query string.
    * @param DOMNode $context
-   *   (optional) A context object. Defaults to NULL.
+   *   (Optional) A context object. Defaults to NULL.
    *
    * @return mixed
    *   The result of the XPath query.
    */
-  protected function executeQuery($query, DOMNode $context = NULL) {
+  protected function executeQuery($query, $context = NULL) {
     $use_errors = libxml_use_internal_errors(TRUE);
 
     // Perfom XPath query.

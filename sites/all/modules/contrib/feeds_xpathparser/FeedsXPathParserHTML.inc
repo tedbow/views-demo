@@ -2,11 +2,7 @@
 
 /**
  * @files
- * Contains FeedsXPathParserHTML.
- */
-
-/**
- * XPath parsing for HTML.
+ * Provides the FeedsXPathParserHTML class.
  */
 class FeedsXPathParserHTML extends FeedsXPathParserBase {
 
@@ -29,7 +25,7 @@ class FeedsXPathParserHTML extends FeedsXPathParserBase {
    */
   protected function setup($source_config, FeedsFetcherResult $fetcher_result) {
 
-    if (!empty($source_config['exp']['tidy']) && extension_loaded('tidy')) {
+    if (!empty($source_config['exp']['tidy'])) {
       $config = array(
         'merge-divs'       => FALSE,
         'merge-spans'      => FALSE,
