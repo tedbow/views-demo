@@ -41,7 +41,7 @@ function npr_feed_importers_feeds_importer_default() {
           'xpathparser:12' => 'show/program',
           'xpathparser:13' => 'link[@type=\'html\']',
           'xpathparser:14' => 'show/program',
-          'xpathparser:15' => 'string(image/crop[1]/@src)',
+          'xpathparser:15' => 'string(image/crop[@type=\'square\']/@src)',
         ),
         'rawXML' => array(
           'xpathparser:15' => 'xpathparser:15',
@@ -158,7 +158,7 @@ function npr_feed_importers_feeds_importer_default() {
     ),
     'content_type' => 'npr_feed',
     'update' => 0,
-    'import_period' => '-1',
+    'import_period' => '900',
     'expire_period' => 3600,
     'import_on_create' => 1,
     'process_in_background' => 0,

@@ -457,42 +457,24 @@ function npr_views_views_default_views() {
   $handler->display->display_options['pager']['options']['offset'] = '0';
   $handler->display->display_options['style_plugin'] = 'default';
   $handler->display->display_options['style_options']['row_class'] = 'divided';
-  $handler->display->display_options['row_plugin'] = 'panels_fields';
-  $handler->display->display_options['row_options']['regions'] = array(
-    'field_who_are_you_wathcing' => 'left',
-    'field_author' => 'left',
-    'picture' => 'left',
-    'field_endrosment' => 'left',
-    'uid' => 'left',
-    'view' => 'right',
-  );
-  /* Relationship: Field: Who are you wathcing (field_who_are_you_wathcing) */
+  $handler->display->display_options['row_plugin'] = 'fields';
+  /* Relationship: User: Who are you wathcing (field_who_are_you_wathcing) */
   $handler->display->display_options['relationships']['field_who_are_you_wathcing_value']['id'] = 'field_who_are_you_wathcing_value';
   $handler->display->display_options['relationships']['field_who_are_you_wathcing_value']['table'] = 'field_data_field_who_are_you_wathcing';
   $handler->display->display_options['relationships']['field_who_are_you_wathcing_value']['field'] = 'field_who_are_you_wathcing_value';
   $handler->display->display_options['relationships']['field_who_are_you_wathcing_value']['required'] = TRUE;
-  $handler->display->display_options['relationships']['field_who_are_you_wathcing_value']['delta'] = '-1';
   /* Relationship: Entity Reference: Referenced Entity */
   $handler->display->display_options['relationships']['field_author_target_id']['id'] = 'field_author_target_id';
   $handler->display->display_options['relationships']['field_author_target_id']['table'] = 'field_data_field_author';
   $handler->display->display_options['relationships']['field_author_target_id']['field'] = 'field_author_target_id';
   $handler->display->display_options['relationships']['field_author_target_id']['relationship'] = 'field_who_are_you_wathcing_value';
   $handler->display->display_options['relationships']['field_author_target_id']['required'] = TRUE;
-  /* Field: Field: Who are you wathcing */
+  /* Field: User: Who are you wathcing */
   $handler->display->display_options['fields']['field_who_are_you_wathcing']['id'] = 'field_who_are_you_wathcing';
   $handler->display->display_options['fields']['field_who_are_you_wathcing']['table'] = 'field_data_field_who_are_you_wathcing';
   $handler->display->display_options['fields']['field_who_are_you_wathcing']['field'] = 'field_who_are_you_wathcing';
   $handler->display->display_options['fields']['field_who_are_you_wathcing']['label'] = 'Who are you wathcing?';
   $handler->display->display_options['fields']['field_who_are_you_wathcing']['exclude'] = TRUE;
-  $handler->display->display_options['fields']['field_who_are_you_wathcing']['settings'] = array(
-    'edit' => 'Edit',
-    'delete' => 'Delete',
-    'add' => 'Add',
-    'description' => 1,
-    'view_mode' => 'full',
-  );
-  $handler->display->display_options['fields']['field_who_are_you_wathcing']['group_rows'] = FALSE;
-  $handler->display->display_options['fields']['field_who_are_you_wathcing']['delta_offset'] = '0';
   /* Field: Field collection item: Author */
   $handler->display->display_options['fields']['field_author']['id'] = 'field_author';
   $handler->display->display_options['fields']['field_author']['table'] = 'field_data_field_author';
@@ -501,9 +483,6 @@ function npr_views_views_default_views() {
   $handler->display->display_options['fields']['field_author']['label'] = '';
   $handler->display->display_options['fields']['field_author']['element_type'] = 'h2';
   $handler->display->display_options['fields']['field_author']['element_label_colon'] = FALSE;
-  $handler->display->display_options['fields']['field_author']['settings'] = array(
-    'link' => 1,
-  );
   /* Field: User: Picture */
   $handler->display->display_options['fields']['picture']['id'] = 'picture';
   $handler->display->display_options['fields']['picture']['table'] = 'users';
@@ -534,10 +513,7 @@ function npr_views_views_default_views() {
   $handler->display->display_options['fields']['view']['field'] = 'view';
   $handler->display->display_options['fields']['view']['label'] = '';
   $handler->display->display_options['fields']['view']['element_label_colon'] = FALSE;
-  $handler->display->display_options['fields']['view']['view'] = 'articles_by_term_and_or_author';
-  $handler->display->display_options['fields']['view']['display'] = 'panel_pane_1';
-  $handler->display->display_options['fields']['view']['arguments'] = '[!uid]';
-  /* Contextual filter: Profile: User uid */
+  /* Contextual filter: Broken/missing handler */
   $handler->display->display_options['arguments']['user']['id'] = 'user';
   $handler->display->display_options['arguments']['user']['table'] = 'profile';
   $handler->display->display_options['arguments']['user']['field'] = 'user';
@@ -550,7 +526,7 @@ function npr_views_views_default_views() {
   $handler->display->display_options['arguments']['user']['summary_options']['items_per_page'] = '25';
   $handler->display->display_options['arguments']['user']['specify_validation'] = TRUE;
   $handler->display->display_options['arguments']['user']['validate']['type'] = 'user';
-  /* Filter criterion: Profile: Type */
+  /* Filter criterion: Broken/missing handler */
   $handler->display->display_options['filters']['type']['id'] = 'type';
   $handler->display->display_options['filters']['type']['table'] = 'profile';
   $handler->display->display_options['filters']['type']['field'] = 'type';
@@ -633,8 +609,7 @@ function npr_views_views_default_views() {
   $handler->display->display_options['fields']['view']['field'] = 'view';
   $handler->display->display_options['fields']['view']['label'] = '';
   $handler->display->display_options['fields']['view']['element_label_colon'] = FALSE;
-  $handler->display->display_options['fields']['view']['view'] = 'articles_by_term_and_or_author';
-  $handler->display->display_options['fields']['view']['display'] = 'panel_pane_4';
+  $handler->display->display_options['fields']['view']['view'] = 'articles_by_term_and_author';
   $handler->display->display_options['fields']['view']['arguments'] = '[!uid]/!1';
   /* Sort criterion: COUNT(User: Name) */
   $handler->display->display_options['sorts']['name']['id'] = 'name';
@@ -647,10 +622,15 @@ function npr_views_views_default_views() {
   $handler->display->display_options['arguments']['field_category_tid']['table'] = 'field_data_field_category';
   $handler->display->display_options['arguments']['field_category_tid']['field'] = 'field_category_tid';
   $handler->display->display_options['arguments']['field_category_tid']['relationship'] = 'uid';
-  $handler->display->display_options['arguments']['field_category_tid']['default_action'] = 'not found';
+  $handler->display->display_options['arguments']['field_category_tid']['default_action'] = 'default';
   $handler->display->display_options['arguments']['field_category_tid']['title_enable'] = TRUE;
   $handler->display->display_options['arguments']['field_category_tid']['title'] = 'Authors in %1';
-  $handler->display->display_options['arguments']['field_category_tid']['default_argument_type'] = 'fixed';
+  $handler->display->display_options['arguments']['field_category_tid']['default_argument_type'] = 'taxonomy_tid';
+  $handler->display->display_options['arguments']['field_category_tid']['default_argument_options']['node'] = TRUE;
+  $handler->display->display_options['arguments']['field_category_tid']['default_argument_options']['limit'] = TRUE;
+  $handler->display->display_options['arguments']['field_category_tid']['default_argument_options']['vocabularies'] = array(
+    'category' => 'category',
+  );
   $handler->display->display_options['arguments']['field_category_tid']['summary']['number_of_records'] = '0';
   $handler->display->display_options['arguments']['field_category_tid']['summary']['format'] = 'default_summary';
   $handler->display->display_options['arguments']['field_category_tid']['summary_options']['items_per_page'] = '25';
@@ -679,18 +659,8 @@ function npr_views_views_default_views() {
   $handler->display->display_options['filters']['status_1']['relationship'] = 'uid';
   $handler->display->display_options['filters']['status_1']['value'] = '1';
 
-  /* Display: Content pane */
-  $handler = $view->new_display('panel_pane', 'Content pane', 'panel_pane_1');
-  $handler->display->display_options['argument_input'] = array(
-    'field_category_tid' => array(
-      'type' => 'context',
-      'context' => 'entity:taxonomy_term.tid',
-      'context_optional' => 0,
-      'panel' => '0',
-      'fixed' => '',
-      'label' => 'Content: Category (field_category)',
-    ),
-  );
+  /* Display: Block */
+  $handler = $view->new_display('block', 'Block', 'block_1');
   $export['count_author_articles'] = $view;
 
   $view = new view();
@@ -787,7 +757,7 @@ function npr_views_views_default_views() {
   $handler->display->display_options['pager']['type'] = 'some';
   $handler->display->display_options['pager']['options']['items_per_page'] = '4';
   $handler->display->display_options['pager']['options']['offset'] = '0';
-  $handler->display->display_options['style_plugin'] = 'flexslider';
+  $handler->display->display_options['style_plugin'] = 'default';
   $handler->display->display_options['row_plugin'] = 'fields';
   /* Field: Content: Image */
   $handler->display->display_options['fields']['field_image']['id'] = 'field_image';
@@ -1809,8 +1779,8 @@ function npr_views_views_default_views() {
   $handler->display->display_options['arguments']['field_show_node_target_id']['table'] = 'field_data_field_show_node';
   $handler->display->display_options['arguments']['field_show_node_target_id']['field'] = 'field_show_node_target_id';
   $handler->display->display_options['arguments']['field_show_node_target_id']['relationship'] = 'uid';
-  $handler->display->display_options['arguments']['field_show_node_target_id']['default_action'] = 'not found';
-  $handler->display->display_options['arguments']['field_show_node_target_id']['default_argument_type'] = 'fixed';
+  $handler->display->display_options['arguments']['field_show_node_target_id']['default_action'] = 'default';
+  $handler->display->display_options['arguments']['field_show_node_target_id']['default_argument_type'] = 'node';
   $handler->display->display_options['arguments']['field_show_node_target_id']['summary']['number_of_records'] = '0';
   $handler->display->display_options['arguments']['field_show_node_target_id']['summary']['format'] = 'default_summary';
   $handler->display->display_options['arguments']['field_show_node_target_id']['summary_options']['items_per_page'] = '25';
@@ -1851,35 +1821,8 @@ function npr_views_views_default_views() {
   $handler->display->display_options['filters']['status_1']['relationship'] = 'uid';
   $handler->display->display_options['filters']['status_1']['value'] = '1';
 
-  /* Display: Content pane */
-  $handler = $view->new_display('panel_pane', 'Content pane', 'panel_pane_1');
-  $handler->display->display_options['allow']['use_pager'] = 0;
-  $handler->display->display_options['allow']['items_per_page'] = 0;
-  $handler->display->display_options['allow']['offset'] = 0;
-  $handler->display->display_options['allow']['link_to_view'] = 0;
-  $handler->display->display_options['allow']['more_link'] = 0;
-  $handler->display->display_options['allow']['path_override'] = 0;
-  $handler->display->display_options['allow']['title_override'] = 'title_override';
-  $handler->display->display_options['allow']['exposed_form'] = 0;
-  $handler->display->display_options['allow']['fields_override'] = 0;
-  $handler->display->display_options['argument_input'] = array(
-    'field_show_node_target_id' => array(
-      'type' => 'context',
-      'context' => 'entity:node.nid',
-      'context_optional' => 0,
-      'panel' => '0',
-      'fixed' => '',
-      'label' => 'Content: Show (field_show_node)',
-    ),
-    'uid' => array(
-      'type' => 'context',
-      'context' => 'entity:user.uid',
-      'context_optional' => 1,
-      'panel' => '0',
-      'fixed' => '',
-      'label' => 'Exclude UID',
-    ),
-  );
+  /* Display: Block */
+  $handler = $view->new_display('block', 'Block', 'block_1');
   $export['show_reporters'] = $view;
 
   $view = new view();
@@ -1935,7 +1878,7 @@ function npr_views_views_default_views() {
   $handler = $view->new_display('page', 'Page', 'page');
   $handler->display->display_options['path'] = 'shows';
   $handler->display->display_options['menu']['type'] = 'normal';
-  $handler->display->display_options['menu']['title'] = 'Show';
+  $handler->display->display_options['menu']['title'] = 'Shows';
   $handler->display->display_options['menu']['weight'] = '-20';
   $handler->display->display_options['menu']['name'] = 'main-menu';
   $handler->display->display_options['menu']['context'] = 0;
@@ -2058,22 +2001,17 @@ function npr_views_views_default_views() {
   $handler->display->display_options['empty']['area']['content'] = '<h1>Oh No!</h1>
 Looks like this test profile is not filled out.';
   $handler->display->display_options['empty']['area']['format'] = 'full_html';
-  /* No results behavior: Global: Link */
+  /* No results behavior: Broken/missing handler */
   $handler->display->display_options['empty']['link']['id'] = 'link';
   $handler->display->display_options['empty']['link']['table'] = 'views';
   $handler->display->display_options['empty']['link']['field'] = 'link';
   $handler->display->display_options['empty']['link']['label'] = 'View a completed Profile';
   $handler->display->display_options['empty']['link']['empty'] = TRUE;
-  $handler->display->display_options['empty']['link']['text'] = 'View a completed Profile';
-  $handler->display->display_options['empty']['link']['path'] = 'users/frank-james';
-  /* Relationship: User: Profile */
+  /* Relationship: Broken/missing handler */
   $handler->display->display_options['relationships']['profile']['id'] = 'profile';
   $handler->display->display_options['relationships']['profile']['table'] = 'users';
   $handler->display->display_options['relationships']['profile']['field'] = 'profile';
   $handler->display->display_options['relationships']['profile']['required'] = TRUE;
-  $handler->display->display_options['relationships']['profile']['bundle_types'] = array(
-    'author_profile' => 'author_profile',
-  );
   /* Field: User: Picture */
   $handler->display->display_options['fields']['picture']['id'] = 'picture';
   $handler->display->display_options['fields']['picture']['table'] = 'users';
@@ -2082,7 +2020,7 @@ Looks like this test profile is not filled out.';
   $handler->display->display_options['fields']['picture']['element_label_colon'] = FALSE;
   $handler->display->display_options['fields']['picture']['link_photo_to_profile'] = FALSE;
   $handler->display->display_options['fields']['picture']['image_style'] = 'large';
-  /* Field: Profile: Bio */
+  /* Field: Broken/missing handler */
   $handler->display->display_options['fields']['field_bio']['id'] = 'field_bio';
   $handler->display->display_options['fields']['field_bio']['table'] = 'field_data_field_bio';
   $handler->display->display_options['fields']['field_bio']['field'] = 'field_bio';

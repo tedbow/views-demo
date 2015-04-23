@@ -10,6 +10,79 @@
 function npr_articles_shows_field_default_field_instances() {
   $field_instances = array();
 
+  // Exported field_instance:
+  // 'field_collection_item-field_who_are_you_wathcing-field_author'
+  $field_instances['field_collection_item-field_who_are_you_wathcing-field_author'] = array(
+    'bundle' => 'field_who_are_you_wathcing',
+    'default_value' => NULL,
+    'deleted' => 0,
+    'description' => 'Name an author you think is good.',
+    'display' => array(
+      'default' => array(
+        'label' => 'above',
+        'module' => 'entityreference',
+        'settings' => array(
+          'link' => FALSE,
+        ),
+        'type' => 'entityreference_label',
+        'weight' => 0,
+      ),
+    ),
+    'entity_type' => 'field_collection_item',
+    'field_name' => 'field_author',
+    'label' => 'Author',
+    'required' => 1,
+    'settings' => array(
+      'user_register_form' => FALSE,
+    ),
+    'widget' => array(
+      'active' => 1,
+      'module' => 'entityreference',
+      'settings' => array(
+        'match_operator' => 'CONTAINS',
+        'path' => '',
+        'size' => 60,
+      ),
+      'type' => 'entityreference_autocomplete',
+      'weight' => 1,
+    ),
+  );
+
+  // Exported field_instance:
+  // 'field_collection_item-field_who_are_you_wathcing-field_endrosment'
+  $field_instances['field_collection_item-field_who_are_you_wathcing-field_endrosment'] = array(
+    'bundle' => 'field_who_are_you_wathcing',
+    'default_value' => NULL,
+    'deleted' => 0,
+    'description' => 'Why should we watch them?',
+    'display' => array(
+      'default' => array(
+        'label' => 'above',
+        'module' => 'text',
+        'settings' => array(),
+        'type' => 'text_default',
+        'weight' => 1,
+      ),
+    ),
+    'entity_type' => 'field_collection_item',
+    'field_name' => 'field_endrosment',
+    'label' => 'Endrosment',
+    'required' => 1,
+    'settings' => array(
+      'text_processing' => 0,
+      'user_register_form' => FALSE,
+    ),
+    'widget' => array(
+      'active' => 1,
+      'module' => 'text',
+      'settings' => array(
+        'rows' => 5,
+      ),
+      'type' => 'text_textarea',
+      'weight' => 2,
+    ),
+  );
+
   // Exported field_instance: 'node-article-body'
   $field_instances['node-article-body'] = array(
     'bundle' => 'article',
@@ -22,7 +95,7 @@ function npr_articles_shows_field_default_field_instances() {
         'module' => 'text',
         'settings' => array(),
         'type' => 'text_default',
-        'weight' => 2,
+        'weight' => 3,
       ),
       'square' => array(
         'label' => 'hidden',
@@ -68,10 +141,11 @@ function npr_articles_shows_field_default_field_instances() {
     'description' => '',
     'display' => array(
       'default' => array(
-        'label' => 'above',
+        'label' => 'hidden',
+        'module' => 'taxonomy',
         'settings' => array(),
-        'type' => 'hidden',
-        'weight' => 5,
+        'type' => 'taxonomy_term_reference_link',
+        'weight' => 0,
       ),
       'square' => array(
         'label' => 'above',
@@ -116,7 +190,7 @@ function npr_articles_shows_field_default_field_instances() {
           'image_style' => 'large',
         ),
         'type' => 'image',
-        'weight' => 1,
+        'weight' => 2,
       ),
       'square' => array(
         'label' => 'hidden',
@@ -178,7 +252,7 @@ function npr_articles_shows_field_default_field_instances() {
         'module' => 'link',
         'settings' => array(),
         'type' => 'link_default',
-        'weight' => 4,
+        'weight' => 5,
       ),
       'square' => array(
         'label' => 'above',
@@ -198,6 +272,7 @@ function npr_articles_shows_field_default_field_instances() {
     'label' => 'Original Article',
     'required' => 0,
     'settings' => array(
+      'absolute_url' => 1,
       'attributes' => array(
         'class' => '',
         'configurable_title' => 0,
@@ -211,6 +286,7 @@ function npr_articles_shows_field_default_field_instances() {
       'enable_tokens' => 1,
       'rel_remove' => 'default',
       'title' => 'value',
+      'title_label_use_field_label' => FALSE,
       'title_maxlength' => 128,
       'title_value' => 'View Original Article',
       'url' => 0,
@@ -240,7 +316,7 @@ function npr_articles_shows_field_default_field_instances() {
           'link' => FALSE,
         ),
         'type' => 'entityreference_label',
-        'weight' => 7,
+        'weight' => 6,
       ),
       'square' => array(
         'label' => 'above',
@@ -289,7 +365,7 @@ function npr_articles_shows_field_default_field_instances() {
           'link' => 1,
         ),
         'type' => 'entityreference_label',
-        'weight' => 0,
+        'weight' => 1,
       ),
       'square' => array(
         'label' => 'above',
@@ -331,7 +407,7 @@ function npr_articles_shows_field_default_field_instances() {
         'label' => 'above',
         'settings' => array(),
         'type' => 'hidden',
-        'weight' => 6,
+        'weight' => 7,
       ),
       'square' => array(
         'label' => 'hidden',
@@ -378,7 +454,7 @@ function npr_articles_shows_field_default_field_instances() {
         'module' => 'taxonomy',
         'settings' => array(),
         'type' => 'taxonomy_term_reference_link',
-        'weight' => 3,
+        'weight' => 4,
       ),
       'square' => array(
         'label' => 'above',
@@ -498,19 +574,61 @@ function npr_articles_shows_field_default_field_instances() {
     ),
   );
 
+  // Exported field_instance: 'user-user-field_who_are_you_wathcing'
+  $field_instances['user-user-field_who_are_you_wathcing'] = array(
+    'bundle' => 'user',
+    'default_value' => NULL,
+    'deleted' => 0,
+    'description' => '',
+    'display' => array(
+      'default' => array(
+        'label' => 'above',
+        'module' => 'field_collection',
+        'settings' => array(
+          'add' => 'Add',
+          'delete' => 'Delete',
+          'description' => TRUE,
+          'edit' => 'Edit',
+          'view_mode' => 'full',
+        ),
+        'type' => 'field_collection_view',
+        'weight' => 0,
+      ),
+    ),
+    'entity_type' => 'user',
+    'field_name' => 'field_who_are_you_wathcing',
+    'label' => 'Who are you wathcing',
+    'required' => 0,
+    'settings' => array(
+      'user_register_form' => 0,
+    ),
+    'widget' => array(
+      'active' => 0,
+      'module' => 'field_collection',
+      'settings' => array(),
+      'type' => 'field_collection_hidden',
+      'weight' => 7,
+    ),
+  );
+
   // Translatables
   // Included for use with string extractors like potx.
+  t('Author');
   t('Body');
   t('Category');
+  t('Endrosment');
   t('Enter a comma-separated list of words to describe your content.');
   t('Featured Stories');
   t('Image');
+  t('Name an author you think is good.');
   t('Original Article');
   t('Related Article');
   t('Show');
   t('Tag Line');
   t('Tags');
   t('Upload an image to go with this article.');
+  t('Who are you wathcing');
+  t('Why should we watch them?');
 
   return $field_instances;
 }
