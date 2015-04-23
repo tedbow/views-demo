@@ -16,6 +16,7 @@ features[views_view][] = author_related_by_cateogry
 features[views_view][] = authors_latest_articles
 features[views_view][] = category_page
 features[views_view][] = flexslider_articles_block
+features[views_view][] = latest_images_page
 features[views_view][] = show_articles2
 features_exclude[dependencies][ctools] = ctools
 project path = sites/all/module/features
