@@ -1,0 +1,25 @@
+/**
+ * Footheme footheme.css
+ *
+ * Use this file to add your custom styles.
+ *
+ * You can change the name of this file, just
+ * remember to update the name in the info file
+ * as well.
+ */
+#branding {
+    width: 70%;
+}
+.view-author-watching .views-row.divided {
+    border-top: dotted #000000;
+}
+.view-writer-profile .views-field-picture {
+    float: left;
+    margin: 5px;
+}
+.field-name-field-tags li {
+    padding-left: 5px;
+}
+.panel-pane {
+    border: dashed 2px gray;
+}
